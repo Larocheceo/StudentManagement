@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Student management</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students}">Student management</a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <h1>List of Students</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <a th:href="@{/students/new}" class="btn btn-primary btn-sm mb-3"> Add Student</a>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th> StudentFirst Name</th>
+                    <th> Student Age</th>
+                    <th> Student Email</th>
+                    <th> Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each ="student: ${students}">
+                    <td th:text = "${student.name}"> </td>
+                    <td th:text = "${student.age}"> </td>
+                    <td th:text = "${student.email}"> </td>
+                    <td >
+                        <a th:href = "@{/students/edit/{id}(id=${student.id})}"
+                        class="btn btn-primary"> Update</a>
+                        <a th:href = "@{/students/{id}(id=${student.id})}"
+                           class="btn btn-danger" id="button"> Delete</a>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    <script>
+        let button = document.getElementById("button");
+        button.addEventListener("click", function () {
+            alert("You are about to delete a student from the database");
+        })
+    </script>
+
+
+
+</body>
+</html>
