@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
+@RequestMapping("/courses")
 public class CourseController {
 
     @Autowired
     private CourseService courseService;
 
-    @GetMapping("/students/courses")
+    @GetMapping
     public String viewAllCourses( Model model) {
         model.addAttribute("courses", courseService.getAllCourses());
         return "course/all_courses";
@@ -30,11 +31,10 @@ public class CourseController {
         return "course/new_course";
     }
 
-    @PostMapping("students/courses")
+    @PostMapping
     public String saveCourse(@ModelAttribute("course") Course course) {
         courseService.addNewCourse(course);
-        return "redirect:/students/courses";
-
+        return "redirect:";
 
     }
 
