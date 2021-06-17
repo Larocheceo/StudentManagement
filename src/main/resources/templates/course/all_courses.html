@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses Of Students</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Student management</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students/courses}">View All Courses</a>
+            </li>
+        </ul>
+    </nav>
+    <br><br>
+
+    <div class="container">
+        <h2 class="text-center">List of all courses </h2>
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Faculty</th>
+                <th>Credits</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="course: ${courses}">
+                <td th:text="${course.courseName}"></td>
+                <td th:text="${course.credits}"></td>
+                <td th:text="${course.faculty}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <a class="btn btn-primary" th:href="@{/add-course}" type="submit"> New Course</a>
+    </div>
+
+</body>
+</html>
+

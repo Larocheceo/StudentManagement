@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create a new course</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">View All Courses</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/students}">View All Courses</a>
+    </li>
+  </ul>
+</nav>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class="text-center"> Add a new course</h1>
+      <div class="card-body">
+        <form th:action="@{/students/courses}" th:object="${course}" method="post">
+          <div class="form-group">
+            <label> Course Name</label>
+            <input
+                    class="form-control"
+                    type="text"
+                    name="name"
+                    th:field = "*{courseName}"
+                    placeholder="Enter the course name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label> Faculty</label>
+            <input
+                    class="form-control"
+                    type="text"
+                    name="email"
+                    th:field = "*{faculty}"
+                    placeholder="Enter the course email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label> Credits</label>
+            <input
+                    class="form-control"
+                    type="text"
+                    name="age"
+                    th:field = "*{credits}"
+                    placeholder="Enter the course credits"
+            />
+          </div>
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

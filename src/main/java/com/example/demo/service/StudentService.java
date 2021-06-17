@@ -1,16 +1,11 @@
-package com.example.demo.student;
+package com.example.demo.service;
 
+import com.example.demo.database.entities.Student;
+import com.example.demo.database.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.transaction.Transactional;
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @Component  // To reference a bean of studentcontroller
 public class StudentService {

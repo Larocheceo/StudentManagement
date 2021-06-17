@@ -1,4 +1,4 @@
-package com.example.demo.student;
+package com.example.demo.controllers;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
